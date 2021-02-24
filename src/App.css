@@ -1,4 +1,8 @@
-*, *:active, *:hover, *:before, *:after {
+*,
+*:active,
+*:hover,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -30,13 +34,13 @@
   cursor: pointer;
 }
 .task-list li span {
-display: block;
+  display: block;
 }
 .task-list li .btn {
   display: none;
   width: 80px;
   position: absolute;
-  right: 10px; 
+  right: 10px;
   padding: 0.4em 1em;
   font-size: 13px;
   z-index: 10;
@@ -51,7 +55,7 @@ display: block;
   padding: 40px 0;
   border-bottom: 1px solid #d7d2cd;
 }
-.inputForm .inner  {
+.inputForm .inner {
   display: flex;
 }
 .inputForm .input {
@@ -71,13 +75,13 @@ display: block;
 }
 .btn {
   font-size: 15px;
-  cursor: pointer ;
+  cursor: pointer;
   font-weight: bold;
   display: inline-block;
   padding: 10px 15px;
   text-decoration: none;
   background: #668ad8;
-  color: #FFF;
+  color: #fff;
   border-bottom: solid 4px #627295;
   border-radius: 7px;
   outline: none;

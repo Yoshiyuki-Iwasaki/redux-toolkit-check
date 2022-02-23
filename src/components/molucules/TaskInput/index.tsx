@@ -9,10 +9,13 @@ const TaskInput: React.FC<TaskInputType> = ({ setTasks, tasks }) => {
   const [count, setCount] = useState(tasks.length + 1);
 
   const handleInputChange = e => {
+    e.preventDefault();
     setInputTitle(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    if (!inputTitle) return;
+    e.preventDefault();
     setCount(count + 1);
 
     const newTask = {

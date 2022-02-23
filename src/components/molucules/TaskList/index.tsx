@@ -1,5 +1,5 @@
-// import React from "react";
 import TaskItem from "../TaskItem";
+import { List } from "./style";
 
 const TaskList = ({ tasks, setTasks }) => {
   const handleDone = task => {
@@ -13,11 +13,11 @@ const TaskList = ({ tasks, setTasks }) => {
   };
 
   return (
-    <div className="inner">
+    <>
       {tasks.length <= 0 ? (
         "登録されたTODOはありません。"
       ) : (
-        <ul className="task-list">
+        <List>
           {tasks.map(task => (
             <TaskItem
               key={task.id}
@@ -26,9 +26,9 @@ const TaskList = ({ tasks, setTasks }) => {
               handleDone={handleDone}
             />
           ))}
-        </ul>
+        </List>
       )}
-    </div>
+    </>
   );
 };
 

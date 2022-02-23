@@ -1,9 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Input from "../../atoms/input";
 import Button from "../../atoms/button";
+import { TaskInputType } from "./type";
 import { InputForm, Inner } from "./style";
 
-const TaskInput = ({ setTasks, tasks }) => {
+const TaskInput: React.FC<TaskInputType> = ({ setTasks, tasks }) => {
   const [inputTitle, setInputTitle] = useState("");
   const [count, setCount] = useState(tasks.length + 1);
 

@@ -1,7 +1,8 @@
 import React from "react";
+import { CheckboxType } from "./type";
 import { Label, Input, Text } from "./style";
 
-const Checkbox = ({ onClick, done, title }) => {
+const Checkbox: React.FC<CheckboxType> = ({ onClick, done, title }) => {
   return (
     <Label>
       <Input type="checkbox" onClick={onClick} defaultChecked={done} />

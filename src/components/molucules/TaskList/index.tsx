@@ -1,7 +1,9 @@
+import React from "react";
 import TaskItem from "../TaskItem";
 import { List } from "./style";
+import { TaskListType } from "./type";
 
-const TaskList = ({ tasks, setTasks }) => {
+const TaskList: React.FC<TaskListType> = ({ tasks, setTasks }) => {
   const handleDone = task => {
     setTasks(prev =>
       prev.map(t => (t.id === task.id ? { ...task, done: !task.done } : t))

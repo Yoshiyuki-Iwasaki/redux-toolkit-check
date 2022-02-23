@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Input from "../../atoms/input";
+import Button from "../../atoms/button";
+import { InputForm, Inner } from "./style";
 
 const TaskInput = ({ setTasks, tasks }) => {
   const [inputTitle, setInputTitle] = useState("");
@@ -22,21 +25,12 @@ const TaskInput = ({ setTasks, tasks }) => {
   };
 
   return (
-    <div>
-      <div className="inputForm">
-        <div className="inner">
-          <input
-            type="text"
-            className="input"
-            value={inputTitle}
-            onChange={handleInputChange}
-          />
-          <button onClick={handleSubmit} className="btn is-primary">
-            追加
-          </button>
-        </div>
-      </div>
-    </div>
+    <InputForm>
+      <Inner>
+        <Input text={inputTitle} onChange={handleInputChange} />
+        <Button onClick={handleSubmit}>追加</Button>
+      </Inner>
+    </InputForm>
   );
 };
 

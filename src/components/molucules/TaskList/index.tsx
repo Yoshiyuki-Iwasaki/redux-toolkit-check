@@ -1,5 +1,5 @@
 // import React from "react";
-import TaskItem from "./TaskItem";
+import TaskItem from "../TaskItem";
 
 const TaskList = ({ tasks, setTasks }) => {
   const handleDone = task => {

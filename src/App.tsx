@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TaskList from "./components/TaskList";
-import TaskInput from "./components/TaskInput";
+import TaskList from "./components/molucules/TaskList";
+import TaskInput from "./components/molucules/TaskInput";
 import "./App.css";
 
 const initialState = [

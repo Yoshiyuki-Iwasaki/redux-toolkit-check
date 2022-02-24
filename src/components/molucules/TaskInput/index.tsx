@@ -1,39 +1,19 @@
-import React, { useState } from "react";
-import Input from "../../atoms/input";
-import Button from "../../atoms/button";
+import React from "react";
+import { useForm } from "react-hook-form";
 import { TaskInputType } from "./type";
-import { InputForm, Inner } from "./style";
+import { InputForm, InputLayout } from "./style";
 
-const TaskInput: React.FC<TaskInputType> = ({ setTasks, tasks }) => {
-  const [inputTitle, setInputTitle] = useState("");
-  const [count, setCount] = useState(tasks.length + 1);
+const TaskInput: React.FC<TaskInputType> = () => {
+  const { register, handleSubmit, reset } = useForm();
 
-  const handleInputChange = e => {
-    e.preventDefault();
-    setInputTitle(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    if (!inputTitle) return;
-    e.preventDefault();
-    setCount(count + 1);
-
-    const newTask = {
-      id: count,
-      title: inputTitle,
-      done: false,
-    };
-
-    setTasks([newTask, ...tasks]);
-    setInputTitle("");
+  const onSubmit = (data: any) => {
+    console.log(data);
+    reset();
   };
 
   return (
-    <InputForm>
-      <Inner>
-        <Input text={inputTitle} onChange={handleInputChange} />
-        <Button onClick={handleSubmit}>追加</Button>
-      </Inner>
+    <InputForm onSubmit={handleSubmit(onSubmit)}>
+      <InputLayout {...register("taskTitle", { required: true })} />
     </InputForm>
   );
 };

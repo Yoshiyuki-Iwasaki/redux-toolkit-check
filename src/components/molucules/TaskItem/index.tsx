@@ -3,19 +3,16 @@ import Button from "../../atoms/button";
 import Checkbox from "../../atoms/checkbox";
 import { TaskItemType } from "./type";
 
-const TaskItem: React.FC<TaskItemType> = ({
-  task,
-  handleDone,
-  handleDelete,
-}) => {
+const TaskItem: React.FC<TaskItemType> = ({ task }) => {
   return (
     <li className={task.done ? "done" : ""}>
       <Checkbox
-        onClick={() => handleDone(task)}
-        done={task.done}
+        onClick={() => console.log(`check ${task.id}`)}
+        done={task.completed}
         title={task.title}
       />
-      <Button onClick={() => handleDelete(task)}>削除</Button>
+      <Button onClick={() => console.log(`edit ${task.id}`)}>編集</Button>
+      <Button onClick={() => console.log(`remove ${task.id}`)}>削除</Button>
     </li>
   );
 };

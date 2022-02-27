@@ -1,18 +1,11 @@
 import React from "react";
 import TaskItem from "../TaskItem";
+import { useSelector } from "react-redux";
+import { selectTask } from "../../../features/task/taskSlice";
 import { List } from "./style";
-import { TaskListType } from "./type";
 
-const TaskList: React.FC<TaskListType> = ({ tasks, setTasks }) => {
-  const handleDone = task => {
-    setTasks(prev =>
-      prev.map(t => (t.id === task.id ? { ...task, done: !task.done } : t))
-    );
-  };
-
-  const handleDelete = task => {
-    setTasks(prev => prev.filter(t => t.id !== task.id));
-  };
+const TaskList: React.FC = () => {
+  const tasks = useSelector(selectTask);
 
   return (
     <>
@@ -21,12 +14,7 @@ const TaskList: React.FC<TaskListType> = ({ tasks, setTasks }) => {
       ) : (
         <List>
           {tasks.map(task => (
-            <TaskItem
-              key={task.id}
-              task={task}
-              handleDelete={handleDelete}
-              handleDone={handleDone}
-            />
+            <TaskItem key={task.id} task={task} />
           ))}
         </List>
       )}

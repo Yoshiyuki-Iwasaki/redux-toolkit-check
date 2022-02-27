@@ -1,9 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { TaskInputType } from "./type";
 import { InputForm, InputLayout } from "./style";
 
-const TaskInput: React.FC<TaskInputType> = () => {
+const TaskInput: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data: any) => {

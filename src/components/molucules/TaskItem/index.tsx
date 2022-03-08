@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../atoms/button";
 import Checkbox from "../../atoms/checkbox";
 import { TaskItemType } from "./type";
+import Modal from "../Modal";
 
 const TaskItem: React.FC<TaskItemType> = ({ task }) => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+    console.log(open);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    console.log(open);
+  };
+
   return (
     <li className={task.done ? "done" : ""}>
       <Checkbox
@@ -11,8 +24,9 @@ const TaskItem: React.FC<TaskItemType> = ({ task }) => {
         done={task.completed}
         title={task.title}
       />
-      <Button onClick={() => console.log(`edit ${task.id}`)}>編集</Button>
+      <Button onClick={() => handleOpen()}>編集</Button>
       <Button onClick={() => console.log(`remove ${task.id}`)}>削除</Button>
+      <Modal openFlag={open} handleClose={handleClose} />
     </li>
   );
 };

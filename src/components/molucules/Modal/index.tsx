@@ -1,30 +1,20 @@
-import { FC } from "react";
-import { useForm } from "react-hook-form";
-import { Content, InputForm, InputLayout, Overlay } from "./style";
+import React from "react";
+import { Content, Overlay } from "./style";
+import TaskInput from "../TaskInput";
 
 type Props = {
   openFlag: boolean;
   handleClose: any;
 };
 
-const Modal: FC<Props> = ({ openFlag, handleClose }) => {
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = () => {
-    console.log("test");
-  };
-
+const Modal: React.FC<Props> = ({ openFlag, handleClose }) => {
   return (
     <>
       {openFlag && (
         <>
           <Overlay onClick={() => handleClose()} />
           <Content>
-            <p>モーダル</p>
-            <InputForm onSubmit={handleSubmit(onSubmit)}>
-              <InputLayout {...register("taskTitle", { required: true })} />
-            </InputForm>
-            <button onClick={() => handleClose()}>閉じる</button>
+            <TaskInput edit />
           </Content>
         </>
       )}

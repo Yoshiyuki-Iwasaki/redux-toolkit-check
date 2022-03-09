@@ -2,7 +2,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { createTask, handleModalOpen } from "../../../features/task/taskSlice";
-import { InputForm, InputLayout } from "./style";
+import {
+  InputForm,
+  InputLayout,
+  ButtonArea,
+  SubmitButton,
+  CancelButton,
+} from "./style";
 import { TaskInputType } from "./type";
 
 const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
@@ -29,12 +35,14 @@ const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
           {...register("taskTitle", { required: true })}
         />
         {edit && (
-          <>
-            <button onClick={() => console.log("Submit")}>Submit</button>
-            <button onClick={() => dispatch(handleModalOpen(false))}>
+          <ButtonArea>
+            <CancelButton onClick={() => dispatch(handleModalOpen(false))}>
               Cancel
-            </button>
-          </>
+            </CancelButton>
+            <SubmitButton onClick={() => console.log("Submit")}>
+              Submit
+            </SubmitButton>
+          </ButtonArea>
         )}
       </InputForm>
     </>

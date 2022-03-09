@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  padding: 5px;
+  padding: 30px 15px 15px 15px;
   position: fixed;
-  width: 300px;
-  height: 250px;
+  width: 250px;
+  height: 170px;
   z-index: 1;
   background: #fff;
   top: 50%;

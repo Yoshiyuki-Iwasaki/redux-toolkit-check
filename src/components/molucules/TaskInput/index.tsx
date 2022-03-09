@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { createTask } from "../../../features/task/taskSlice";
+import { createTask, handleModalOpen } from "../../../features/task/taskSlice";
 import { InputForm, InputLayout } from "./style";
 import { TaskInputType } from "./type";
 
@@ -31,7 +31,9 @@ const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
         {edit && (
           <>
             <button onClick={() => console.log("Submit")}>Submit</button>
-            <button onClick={() => console.log("Cancel")}>Cancel</button>
+            <button onClick={() => dispatch(handleModalOpen(false))}>
+              Cancel
+            </button>
           </>
         )}
       </InputForm>

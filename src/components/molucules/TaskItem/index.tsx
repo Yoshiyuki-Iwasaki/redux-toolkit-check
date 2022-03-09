@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  handleModalOpen,
+  selectIsModalOpen,
+} from "../../../features/task/taskSlice";
 import Button from "../../atoms/button";
 import Checkbox from "../../atoms/checkbox";
 import { TaskItemType } from "./type";
@@ -6,16 +11,15 @@ import Modal from "../Modal";
 import { ListItem } from "./style";
 
 const TaskItem: React.FC<TaskItemType> = ({ task }) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const isModalOpen = useSelector(selectIsModalOpen);
+  const dispatch = useDispatch();
 
   const handleOpen = () => {
-    setOpen(true);
-    console.log(open);
+    dispatch(handleModalOpen(true));
   };
 
   const handleClose = () => {
-    setOpen(false);
-    console.log(open);
+    dispatch(handleModalOpen(false));
   };
 
   return (
@@ -27,7 +31,7 @@ const TaskItem: React.FC<TaskItemType> = ({ task }) => {
       />
       <Button onClick={() => handleOpen()}>編集</Button>
       <Button onClick={() => console.log(`remove ${task.id}`)}>削除</Button>
-      <Modal openFlag={open} handleClose={handleClose} />
+      <Modal openFlag={isModalOpen} handleClose={handleClose} />
     </ListItem>
   );
 };

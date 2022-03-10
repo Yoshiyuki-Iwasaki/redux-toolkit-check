@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createTask,
+  editTask,
   handleModalOpen,
   selectSelectedTasks,
 } from "../../../features/task/taskSlice";
@@ -25,32 +26,32 @@ const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
     reset();
   };
 
-  const handleEdit = () => {
-    console.log("test");
+  const handleEdit = (data: any) => {
+    const sendData = { ...selectedTask, title: data.taskTitle };
+    dispatch(editTask(sendData));
+    dispatch(handleModalOpen(false));
   };
 
   return (
-    <>
-      <InputForm
-        onSubmit={edit ? handleSubmit(handleEdit) : handleSubmit(handleCreate)}
-      >
-        <InputLayout
-          placeholder={edit ? "Edit Task" : "New Task"}
-          defaultValue={edit ? selectedTask.title : ""}
-          {...register("taskTitle", { required: true })}
-        />
-        {edit && (
-          <ButtonArea>
-            <CancelButton onClick={() => dispatch(handleModalOpen(false))}>
-              Cancel
-            </CancelButton>
-            <SubmitButton onClick={() => console.log("Submit")}>
-              Submit
-            </SubmitButton>
-          </ButtonArea>
-        )}
-      </InputForm>
-    </>
+    <InputForm
+      onSubmit={edit ? handleSubmit(handleEdit) : handleSubmit(handleCreate)}
+    >
+      <InputLayout
+        placeholder={edit ? "Edit Task" : "New Task"}
+        defaultValue={edit ? selectedTask.title : ""}
+        {...register("taskTitle", { required: true })}
+      />
+      {edit && (
+        <ButtonArea>
+          <CancelButton onClick={() => dispatch(handleModalOpen(false))}>
+            Cancel
+          </CancelButton>
+          <SubmitButton onClick={() => console.log("Submit")}>
+            Submit
+          </SubmitButton>
+        </ButtonArea>
+      )}
+    </InputForm>
   );
 };
 

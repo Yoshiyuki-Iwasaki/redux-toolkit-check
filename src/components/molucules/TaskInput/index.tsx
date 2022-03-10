@@ -1,7 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { createTask, handleModalOpen } from "../../../features/task/taskSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  createTask,
+  handleModalOpen,
+  selectSelectedTasks,
+} from "../../../features/task/taskSlice";
 import {
   InputForm,
   InputLayout,
@@ -13,6 +17,7 @@ import { TaskInputType } from "./type";
 
 const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
   const dispatch = useDispatch();
+  const selectedTask = useSelector(selectSelectedTasks);
   const { register, handleSubmit, reset } = useForm();
 
   const handleCreate = (data: any) => {
@@ -31,7 +36,7 @@ const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
       >
         <InputLayout
           placeholder={edit ? "Edit Task" : "New Task"}
-          defaultValue={edit ? "defaultValue" : ""}
+          defaultValue={edit ? selectedTask.title : ""}
           {...register("taskTitle", { required: true })}
         />
         {edit && (

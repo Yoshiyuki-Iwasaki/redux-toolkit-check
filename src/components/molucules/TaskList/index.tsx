@@ -1,11 +1,11 @@
 import React from "react";
 import TaskItem from "../TaskItem";
 import { useSelector } from "react-redux";
-import { selectTask } from "../../../features/task/taskSlice";
+import { selectsTasks } from "../../../features/task/taskSlice";
 import { List } from "./style";
 
 const TaskList: React.FC = () => {
-  const tasks = useSelector(selectTask);
+  const tasks = useSelector(selectsTasks);
 
   return (
     <>

@@ -5,8 +5,8 @@ import {
   selectTask,
   completeTask,
   handleModalOpen,
-  selectIsModalOpen,
-} from "../../../features/task/taskSlice";
+} from "../../../features/task";
+import { selectIsModalOpen } from "../../../features/task/selector";
 import Checkbox from "../../atoms/checkbox";
 import { TaskItemType } from "./type";
 import Modal from "../Modal";

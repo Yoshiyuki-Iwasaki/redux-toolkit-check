@@ -1,12 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createTask,
-  editTask,
-  handleModalOpen,
-  selectSelectedTasks,
-} from "../../../features/task/taskSlice";
+import { createTask, editTask, handleModalOpen } from "../../../features/task";
+import { selectSelectedTasks } from "../../../features/task/selector";
 import {
   InputForm,
   InputLayout,

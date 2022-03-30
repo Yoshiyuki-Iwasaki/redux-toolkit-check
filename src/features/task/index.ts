@@ -34,8 +34,11 @@ export const taskSlice = createSlice({
     },
     //taskの削除機能
     removeTask: (state, action) => {
-      // 指定したtask以外でstate.tasksを新たに配列を作成する
-      state.tasks = state.tasks.filter(t => t.id !== action.payload.id);
+      const result = window.confirm("本当にこの投稿を削除しますか。");
+      if (result) {
+        // 指定したtask以外でstate.tasksを新たに配列を作成する
+        state.tasks = state.tasks.filter(t => t.id !== action.payload.id);
+      }
     },
     // task編集
     editTask: (state, action) => {

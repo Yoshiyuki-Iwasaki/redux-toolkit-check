@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createTask, editTask, handleModalOpen } from "../../../features/task";
@@ -6,7 +6,7 @@ import { selectSelectedTasks } from "../../../features/task/selector";
 import Presenter from "./presenter";
 import { TaskInputType } from "./type";
 
-const TaskInput: React.FC<TaskInputType> = ({ edit }) => {
+const TaskInput: FC<TaskInputType> = ({ edit }) => {
   const dispatch = useDispatch();
   const selectedTask = useSelector(selectSelectedTasks);
   const { register, handleSubmit, reset } = useForm();

@@ -1,12 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { handleModalOpen } from "../../../features/task";
-import {
-  InputForm,
-  InputLayout,
-  ButtonArea,
-  SubmitButton,
-  CancelButton,
-} from "./style";
+import Input from "../../atoms/input";
+import { InputForm, ButtonArea, SubmitButton, CancelButton } from "./style";
 import { PresenterType } from "./type";
 
 const TaskInput: FC<PresenterType> = ({
@@ -22,10 +17,11 @@ const TaskInput: FC<PresenterType> = ({
     <InputForm
       onSubmit={edit ? handleSubmit(handleEdit) : handleSubmit(handleCreate)}
     >
-      <InputLayout
-        placeholder={edit ? "Edit Task" : "New Task"}
-        defaultValue={edit ? selectedTask.title : ""}
-        {...register("taskTitle", { required: true })}
+      <Input
+        type="text"
+        edit={edit}
+        selectedTask={selectedTask}
+        register={register}
       />
       {edit && (
         <ButtonArea>

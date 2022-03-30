@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 import { ButtonType } from "./type";
 import Presenter from "./presenter";
 
-const Button: React.FC<ButtonType> = ({ children, onClick }) => {
+const Button: FC<ButtonType> = ({ children, onClick }) => {
   return <Presenter onClick={onClick}>{children}</Presenter>;
 };
 

@@ -13,16 +13,9 @@ export const ListItem = styled.li`
   }
 `;
 
-export const ButtonArea = styled.li``;
-
-export const Button = styled.button`
-  background: #333;
-  padding: 5px;
-  color: #fff;
+export const ButtonArea = styled.li`
+  display: flex;
 `;
-
-export const EditButton = styled(Button)``;
-
-export const RemoveButton = styled(Button)`
-  margin-left: 10px;
+export const ButtonLayout = styled.div`
+  padding: 0 5px;
 `;

@@ -4,8 +4,9 @@ export type TaskItemType = {
 
 export type PresenterType = {
   task: any;
-  handleOpen: any;
-  handleClose: any;
-  dispatch: any;
+  handleOpenTask: any;
+  handleCloseTask: any;
+  handleRemoveTask: any;
+  handleCompleteTask: any;
   isModalOpen: any;
 };

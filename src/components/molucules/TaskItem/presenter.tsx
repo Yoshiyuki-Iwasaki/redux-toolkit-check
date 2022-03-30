@@ -1,31 +1,34 @@
-import React from "react";
-import { removeTask, completeTask } from "../../../features/task";
+import { FC } from "react";
 import Checkbox from "../../atoms/checkbox";
-import { PresenterType } from "./type";
 import Modal from "../Modal";
-import { ListItem, ButtonArea, EditButton, RemoveButton } from "./style";
+import Button from "../../atoms/button";
+import { ListItem, ButtonArea, ButtonLayout } from "./style";
+import { PresenterType } from "./type";
 
-const Presenter: React.FC<PresenterType> = ({
+const Presenter: FC<PresenterType> = ({
   task,
-  handleOpen,
-  handleClose,
-  dispatch,
+  handleOpenTask,
+  handleCloseTask,
+  handleRemoveTask,
+  handleCompleteTask,
   isModalOpen,
 }) => {
   return (
     <ListItem>
       <Checkbox
-        onClick={() => dispatch(completeTask(task))}
+        onClick={() => handleCompleteTask()}
         done={task.completed}
         title={task.title}
       />
       <ButtonArea>
-        <EditButton onClick={() => handleOpen()}>編集</EditButton>
-        <RemoveButton onClick={() => dispatch(removeTask(task))}>
-          削除
-        </RemoveButton>
+        <ButtonLayout>
+          <Button onClick={() => handleOpenTask()}>編集</Button>
+        </ButtonLayout>
+        <ButtonLayout>
+          <Button onClick={() => handleRemoveTask()}>削除</Button>
+        </ButtonLayout>
       </ButtonArea>
-      <Modal openFlag={isModalOpen} handleClose={handleClose} />
+      <Modal openFlag={isModalOpen} handleClose={handleCloseTask} />
     </ListItem>
   );
 };

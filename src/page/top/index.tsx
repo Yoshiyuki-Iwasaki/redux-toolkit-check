@@ -1,10 +1,10 @@
-import TaskApp from "../../components/organisms/TaskApp";
+import TaskList from "../../components/organisms/TaskList";
 import { Main } from "./style";
 
 const index = () => {
   return (
     <Main>
-      <TaskApp />
+      <TaskList />
     </Main>
   );
 };

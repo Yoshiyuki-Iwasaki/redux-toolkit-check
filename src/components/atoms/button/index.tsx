@@ -1,9 +1,9 @@
 import React from "react";
 import { ButtonType } from "./type";
-import { ButtonLayout } from "./style";
+import Presenter from "./presenter";
 
 const Button: React.FC<ButtonType> = ({ children, onClick }) => {
-  return <ButtonLayout onClick={onClick}>{children}</ButtonLayout>;
+  return <Presenter onClick={onClick}>{children}</Presenter>;
 };
 
 export default Button;

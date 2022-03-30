@@ -1,3 +1,9 @@
 export type InputType = {
-  inputRef: any;
+  inputRef?: any;
+  onClick?: any;
+  done?: any;
+  type: any;
+  edit?: any;
+  selectedTask?: any;
+  register?: any;
 };

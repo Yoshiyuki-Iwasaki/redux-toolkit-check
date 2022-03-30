@@ -1,9 +1,9 @@
-import React from "react";
+import { FC } from "react";
 import { Content, Overlay } from "./style";
 import TaskInput from "../TaskInput";
 import { ModalType } from "./type";
 
-const Presenter: React.FC<ModalType> = ({ openFlag, handleClose }) => {
+const Presenter: FC<ModalType> = ({ openFlag, handleClose }) => {
   return (
     <>
       {openFlag && (

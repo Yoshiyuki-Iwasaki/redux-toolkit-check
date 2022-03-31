@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Checkbox from "../../atoms/checkbox";
+import Checkbox from "../checkbox";
 import Modal from "../Modal";
 import Button from "../../atoms/button";
 import { ListItem, ButtonArea, ButtonLayout } from "./style";

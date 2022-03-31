@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CheckboxType } from "./type";
 import { Label, Text } from "./style";
-import Input from "../input";
+import Input from "../../atoms/input";
 
 const Presenter: FC<CheckboxType> = ({ onClick, done, title }) => {
   return (
